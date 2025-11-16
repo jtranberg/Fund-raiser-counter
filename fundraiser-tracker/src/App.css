@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b1b3b;
+  color: white;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.top-nav button {
+  background: #ffb74d;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dashboard {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.entry-list {
+  margin-top: 20px;
+}
+
+.entry-card {
+  display: flex;
+  justify-content: space-between;
+  background: #121826;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.date {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.total-amount {
+  color: #ffd27f;
+}
+
+.admin-login, .admin-panel {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
