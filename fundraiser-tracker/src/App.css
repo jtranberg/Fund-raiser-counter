@@ -5,22 +5,84 @@ body {
   color: white;
 }
 
-.top-nav {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
+/* 🔵 APP WRAPPER */
+.app {
+  max-width: auto;
+  margin: 0 auto;
+  padding: 10px;
 }
 
-.top-nav button {
-  background: #ffb74d;
-  border: none;
-  padding: 10px 18px;
+/* 🔵 TOP NAVBAR WITH HAMBURGER */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #121826;
+  color: #f9fafb;
+  padding: 8px 12px;
   border-radius: 8px;
-  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-title {
+  font-size: 1rem;
   font-weight: 600;
 }
 
+/* Nav links container */
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+/* Nav buttons */
+.nav-btn {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.nav-btn:hover {
+  background: #374151;
+}
+
+.nav-btn.active {
+  background: #ffb74d;
+  color: #111827;
+}
+
+/* Hamburger button (hidden on desktop) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #f9fafb;
+}
+
+/* 🔵 BANNER */
+.banner {
+  margin-bottom: 20px;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* 🔵 DASHBOARD LAYOUT */
 .dashboard {
   padding: 20px;
   max-width: 700px;
@@ -38,7 +100,7 @@ body {
   padding: 14px;
   border-radius: 10px;
   margin-bottom: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .date {
@@ -50,7 +112,9 @@ body {
   color: #ffd27f;
 }
 
-.admin-login, .admin-panel {
+/* 🔵 ADMIN LAYOUT */
+.admin-login,
+.admin-panel {
   max-width: 700px;
   margin: auto;
   padding: 20px;
@@ -72,42 +136,39 @@ button {
   cursor: pointer;
 }
 
+/* Force readable text in admin entries */
 .entry-card-admin {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #f5f5f5;
+  color: #222;
   padding: 10px;
   margin: 6px 0;
   border-radius: 6px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
+.entry-card-admin strong {
+  color: #000 !important;
+}
+
+/* Delete button */
 .delete-btn {
-  background: #d9534f;
+  background: #d32f2f;
   border: none;
   color: white;
-  padding: 6px 10px;
+  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 0.85rem;
 }
 
 .delete-btn:hover {
   background: #c9302c;
 }
 
-/* Force readable text in admin entries */
-.entry-card-admin {
-  color: #222 !important;      /* dark text */
-  background: #f5f5f5 !important;
-}
-
-.entry-card-admin strong {
-  color: #000 !important;      /* even darker for names */
-}
-
-.entry-card-admin .amount {
-  color: #000 !important;
-}
 /* 🔵 Chart section */
 .chart-section {
   margin-top: 30px;
@@ -167,7 +228,6 @@ button {
 }
 
 /* === TOTAL RAISED SECTION === */
-
 .total-title {
   margin-top: 10px;
   font-size: 1.4rem;
@@ -194,7 +254,7 @@ button {
 /* Progress Bar */
 .progress-bar {
   width: 100%;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   height: 18px;
   margin: 10px auto 20px auto;
@@ -209,6 +269,7 @@ button {
   transition: width 0.4s ease-in-out;
 }
 
+/* Goal panel */
 .goal-panel {
   margin-bottom: 20px;
   padding: 12px;
@@ -220,19 +281,7 @@ button {
   margin: 0 0 8px 0;
 }
 
-.entry-card-admin {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f5f5f5;
-  color: #222;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 6px;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
+/* Admin entry actions / edit UI */
 .entry-actions {
   display: flex;
   gap: 6px;
@@ -275,12 +324,31 @@ button {
   color: white;
 }
 
-.delete-btn {
-  background: #d32f2f;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.85rem;
+/* 🔽 MOBILE NAV: hamburger + dropdown */
+@media (max-width: 640px) {
+  .top-nav {
+    position: relative;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 8px;
+    margin-top: 6px;
+    background: #121826;
+    border-radius: 8px;
+    padding: 6px;
+    flex-direction: column;
+    gap: 6px;
+    display: none; /* hidden by default */
+    z-index: 10;
+  }
+
+  .nav-links.open {
+    display: flex; /* show when menuOpen=true */
+  }
+
+  .hamburger {
+    display: block; /* show hamburger on mobile */
+  }
 }

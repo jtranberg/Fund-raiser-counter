@@ -18,7 +18,7 @@ export default function Admin({ entries, setEntries, goal, setGoal }: Props) {
   const [amount, setAmount] = useState("");
   const [goalInput, setGoalInput] = useState(goal.toString());
 
-  // 🔵 Edit state
+  // edit state
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
   const [editAmount, setEditAmount] = useState("");
@@ -58,14 +58,12 @@ export default function Admin({ entries, setEntries, goal, setGoal }: Props) {
     alert("Fundraising goal updated.");
   };
 
-  // 🔵 Start editing an entry
   const startEdit = (entry: Entry) => {
     setEditingId(entry.id);
     setEditName(entry.name);
     setEditAmount(entry.amount.toString());
   };
 
-  // 🔵 Save edited entry
   const saveEdit = () => {
     if (!editingId) return;
     if (!editName || !editAmount) {
@@ -91,14 +89,12 @@ export default function Admin({ entries, setEntries, goal, setGoal }: Props) {
     setEditAmount("");
   };
 
-  // 🔵 Cancel editing
   const cancelEdit = () => {
     setEditingId(null);
     setEditName("");
     setEditAmount("");
   };
 
-  // 🔵 Delete entry
   const deleteEntry = (entry: Entry) => {
     if (
       !window.confirm(
@@ -173,8 +169,9 @@ export default function Admin({ entries, setEntries, goal, setGoal }: Props) {
 
         return (
           <div className="entry-card-admin" key={e.id}>
-            {isEditing ? (
-              <>
+            {/* Top row: text or edit fields */}
+            <div className="entry-main">
+              {isEditing ? (
                 <div className="edit-fields">
                   <input
                     type="text"
@@ -189,25 +186,27 @@ export default function Admin({ entries, setEntries, goal, setGoal }: Props) {
                     placeholder="Amount"
                   />
                 </div>
-                <div className="entry-actions">
+              ) : (
+                <div>
+                  <strong>{e.name}</strong> — ${e.amount.toFixed(2)}
+                </div>
+              )}
+            </div>
+
+            {/* Second row: buttons */}
+            <div className="entry-actions">
+              {isEditing ? (
+                <>
                   <button className="save-btn" onClick={saveEdit}>
                     Save
                   </button>
                   <button className="cancel-btn" onClick={cancelEdit}>
                     Cancel
                   </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <strong>{e.name}</strong> — ${e.amount.toFixed(2)}
-                </div>
-                <div className="entry-actions">
-                  <button
-                    className="edit-btn"
-                    onClick={() => startEdit(e)}
-                  >
+                </>
+              ) : (
+                <>
+                  <button className="edit-btn" onClick={() => startEdit(e)}>
                     Edit
                   </button>
                   <button
@@ -216,9 +215,9 @@ export default function Admin({ entries, setEntries, goal, setGoal }: Props) {
                   >
                     Delete
                   </button>
-                </div>
-              </>
-            )}
+                </>
+              )}
+            </div>
           </div>
         );
       })}
