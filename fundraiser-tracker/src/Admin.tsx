@@ -38,6 +38,15 @@ export default function Admin({ entries, setEntries }: Props) {
     setAmount("");
   };
 
+  // 🔥 NEW: Delete function
+  const deleteEntry = (id: string) => {
+    if (!window.confirm("Are you sure you want to delete this entry?")) return;
+
+    const updated = entries.filter((e) => e.id !== id);
+    setEntries(updated);
+    saveEntries(updated);
+  };
+
   if (!loggedIn) {
     return (
       <div className="admin-login">
@@ -74,9 +83,20 @@ export default function Admin({ entries, setEntries }: Props) {
       </div>
 
       <h3>Existing Entries</h3>
+
       {entries.map((e) => (
         <div className="entry-card-admin" key={e.id}>
-          <strong>{e.name}</strong> — ${e.amount.toFixed(2)}
+          <div>
+            <strong>{e.name}</strong> — ${e.amount.toFixed(2)}
+          </div>
+
+          {/* 🔥 Delete Button */}
+          <button
+            className="delete-btn"
+            onClick={() => deleteEntry(e.id)}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>

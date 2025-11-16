@@ -6,17 +6,23 @@ import "./App.css";
 
 export default function App() {
   const [page, setPage] = useState("dashboard");
-
-  // Load from localStorage just once (no effect needed)
   const [entries, setEntries] = useState(() => loadEntries());
 
   return (
     <div className="app">
+
+      {/* 🔵 TOP BANNER */}
+      <div className="banner">
+        <img src="/banner.jpg" alt="Fundraiser Banner" />
+      </div>
+
+      {/* 🔵 NAVIGATION */}
       <nav className="top-nav">
         <button onClick={() => setPage("dashboard")}>Dashboard</button>
         <button onClick={() => setPage("admin")}>Admin</button>
       </nav>
 
+      {/* 🔵 PAGE CONTENT */}
       {page === "dashboard" && <Dashboard entries={entries} />}
       {page === "admin" && (
         <Admin entries={entries} setEntries={setEntries} />
