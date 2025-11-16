@@ -352,3 +352,23 @@ button {
     display: block; /* show hamburger on mobile */
   }
 }
+
+/* FOOTER */
+.site-footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.25);
+}
+
+.site-footer p {
+  margin: 4px 0;
+}
+
+.site-footer strong {
+  color: #ffca28; /* gold accent */
+}
+
