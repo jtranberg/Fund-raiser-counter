@@ -108,3 +108,179 @@ button {
 .entry-card-admin .amount {
   color: #000 !important;
 }
+/* 🔵 Chart section */
+.chart-section {
+  margin-top: 30px;
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.chart-section h3 {
+  margin: 0 0 4px 0;
+}
+
+.chart-subtitle {
+  margin: 0 0 12px 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Container for all rows */
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* One row: name + bar */
+.chart-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Fundraiser name */
+.chart-name {
+  font-size: 0.9rem;
+}
+
+/* Bar container */
+.chart-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Actual bar */
+.chart-bar {
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb74d, #ff7043);
+  flex-shrink: 0;
+}
+
+/* Amount text to the right of the bar */
+.chart-bar-amount {
+  font-size: 0.85rem;
+  min-width: 70px;
+}
+
+/* === TOTAL RAISED SECTION === */
+
+.total-title {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.total-wrapper {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.total-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffd54f; /* gold */
+}
+
+.goal-text {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  height: 18px;
+  margin: 10px auto 20px auto;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffca28, #ff8f00);
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.4s ease-in-out;
+}
+
+.goal-panel {
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.goal-current {
+  margin: 0 0 8px 0;
+}
+
+.entry-card-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  color: #222;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.entry-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.edit-fields {
+  display: flex;
+  gap: 6px;
+}
+
+.edit-fields input {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Buttons */
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.edit-btn {
+  background: #0277bd;
+  color: white;
+}
+
+.save-btn {
+  background: #2e7d32;
+  color: white;
+}
+
+.cancel-btn {
+  background: #9e9e9e;
+  color: white;
+}
+
+.delete-btn {
+  background: #d32f2f;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
