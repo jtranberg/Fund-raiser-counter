@@ -34,7 +34,7 @@ export default function Dashboard({ entries, goal }: Props) {
       </div>
 
       {/* === BAR CHART === */}
-      <h3>Fundraising by Event</h3>
+      <h3>Fundraising by Event and Individuals</h3>
       <div className="chart-container">
         {entries.length === 0 && <p>No data yet.</p>}
 
